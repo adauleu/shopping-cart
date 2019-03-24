@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.fruit-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: auto;
+  width: 250px;
+}
+.fruit-item > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.fruit-description > span {
+  margin-right: 10px;
+}
+
+.fruit-item > .fruit-description {
+  flex-grow: 1;
+}
