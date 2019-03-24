@@ -19,7 +19,9 @@ export const FruitItem = ({ name, price, quantity, addItem, removeItem }) => (
     <div className="fruit-quantity">
       <button onClick={() => addItem(name)}>+</button>
       {quantity}
-      <button onClick={() => removeItem(name)}>-</button>
+      <button onClick={() => removeItem(name)} disabled={quantity === 0}>
+        -
+      </button>
     </div>
   </div>
 );
