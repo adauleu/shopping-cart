@@ -3,14 +3,11 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
-
+import { composeWithDevTools } from "redux-devtools-extension";
 import { createStore } from "redux";
 import cartApp from "./reducers/reducers";
 
-const store = createStore(
-  cartApp /* preloadedState, */,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(cartApp, composeWithDevTools());
 
 ReactDOM.render(
   <Provider store={store}>
