@@ -1,10 +1,9 @@
 import { computePrice } from "./PriceCalculator";
-import { FruitTypes } from "../constants/FruitTypes";
-import { cartFactory } from "../setupTests";
+import { stateFactory } from "../setupTests";
 
 it("should cost 1.05€ for 2 bananas and 3 oranges", () => {
   //Given
-  const cart = cartFactory(2, 0, 3, 0).cartItems;
+  const cart = stateFactory(2, 0, 3, 0).cartItems;
 
   //When
   const total = computePrice(cart);
@@ -15,7 +14,7 @@ it("should cost 1.05€ for 2 bananas and 3 oranges", () => {
 
 it("should cost the price of 2 papayas instead of 3", () => {
   //Given
-  const cart = cartFactory(0, 0, 0, 3).cartItems;
+  const cart = stateFactory(0, 0, 0, 3).cartItems;
 
   //When
   const total = computePrice(cart);
@@ -26,7 +25,7 @@ it("should cost the price of 2 papayas instead of 3", () => {
 
 it("should cost 2.30€ for 2 bananas and 5 papayas", () => {
   //Given
-  const cart = cartFactory(2, 0, 0, 5).cartItems;
+  const cart = stateFactory(2, 0, 0, 5).cartItems;
 
   //When
   const total = computePrice(cart);

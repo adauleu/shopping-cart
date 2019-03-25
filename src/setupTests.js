@@ -4,7 +4,7 @@ import { FruitTypes } from "./constants/FruitTypes";
 
 configure({ adapter: new Adapter() });
 
-export function cartFactory(
+export function stateFactory(
   bananaQuantity,
   appleQuantity,
   orangeQuantity,

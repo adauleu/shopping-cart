@@ -32,13 +32,13 @@ export const initialState = {
 };
 
 const cartApp = createReducer(initialState, {
-  [ADD_ITEM]: (state = initialState, action) => {
+  [ADD_ITEM]: (state, action) => {
     const cartItemIndex = state.cartItems.findIndex(
       cartItem => action.id === cartItem.id
     );
     state.cartItems[cartItemIndex].quantity++;
   },
-  [REMOVE_ITEM]: (state = initialState, action) => {
+  [REMOVE_ITEM]: (state, action) => {
     const cartItemIndex = state.cartItems.findIndex(
       cartItem => action.id === cartItem.id
     );

@@ -1,5 +1,5 @@
 import reducer, { initialState } from "./reducers";
-import { cartFactory as stateFactory } from "../setupTests";
+import { stateFactory } from "../setupTests";
 import { ADD_ITEM, REMOVE_ITEM } from "../actions/actions";
 import { FruitTypes } from "../constants/FruitTypes";
 
