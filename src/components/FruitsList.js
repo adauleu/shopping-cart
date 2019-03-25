@@ -4,19 +4,20 @@ import PropTypes from "prop-types";
 
 const FruitsList = ({ cart }) => (
   <div>
-    {Object.keys(cart).map((fruitName, index) => (
+    {cart.map(cartItem => (
       <FruitItem
-        name={fruitName}
-        price={cart[fruitName].price}
-        quantity={cart[fruitName].quantity}
-        key={index}
+        id={cartItem.id}
+        name={cartItem.name}
+        price={cartItem.price}
+        quantity={cartItem.quantity}
+        key={cartItem.id}
       />
     ))}
   </div>
 );
 
 FruitsList.propTypes = {
-  cart: PropTypes.object.isRequired
+  cart: PropTypes.array.isRequired
 };
 
 export default FruitsList;

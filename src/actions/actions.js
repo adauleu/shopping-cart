@@ -1,10 +1,10 @@
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 
-export function addItem(name) {
-  return { type: ADD_ITEM, name };
+export function addItem(id) {
+  return { type: ADD_ITEM, id };
 }
 
-export function removeItem(name) {
-  return { type: REMOVE_ITEM, name };
+export function removeItem(id) {
+  return { type: REMOVE_ITEM, id };
 }

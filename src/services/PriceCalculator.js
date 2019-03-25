@@ -1,11 +1,10 @@
 import { FruitTypes } from "../constants/FruitTypes";
 
 export function computePrice(cart) {
-  return Object.keys(cart)
-    .reduce((currentTotal, fruitName) => {
-      const cartItem = cart[fruitName];
+  return cart
+    .reduce((currentTotal, cartItem) => {
       const quantity =
-        fruitName === FruitTypes.PAPAYA
+        cartItem.id === FruitTypes.PAPAYA
           ? getQuantityWhen3For2Discount(cartItem.quantity)
           : cartItem.quantity;
       return currentTotal + quantity * cartItem.price;

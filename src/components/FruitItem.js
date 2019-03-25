@@ -3,7 +3,14 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addItem, removeItem } from "../actions/actions";
 
-export const FruitItem = ({ name, price, quantity, addItem, removeItem }) => (
+export const FruitItem = ({
+  id,
+  name,
+  price,
+  quantity,
+  addItem,
+  removeItem
+}) => (
   <div className="fruit-item">
     <div className="fruit-description">
       <img
@@ -17,21 +24,22 @@ export const FruitItem = ({ name, price, quantity, addItem, removeItem }) => (
       </span>
     </div>
     <div className="fruit-quantity">
-      <button onClick={() => addItem(name)}>+</button>
-      {quantity}
-      <button onClick={() => removeItem(name)} disabled={quantity === 0}>
+      <button onClick={() => removeItem(id)} disabled={quantity === 0}>
         -
       </button>
+      {quantity}
+      <button onClick={() => addItem(id)}>+</button>
     </div>
   </div>
 );
 
 const mapDispatchToProps = dispatch => ({
-  addItem: fruitName => dispatch(addItem(fruitName)),
-  removeItem: fruitName => dispatch(removeItem(fruitName))
+  addItem: fruitId => dispatch(addItem(fruitId)),
+  removeItem: fruitId => dispatch(removeItem(fruitId))
 });
 
 FruitItem.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired

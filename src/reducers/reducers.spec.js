@@ -1,5 +1,5 @@
-import reducer from "./reducers";
-import { cartFactory } from "../setupTests";
+import reducer, { initialState } from "./reducers";
+import { cartFactory as stateFactory } from "../setupTests";
 import { ADD_ITEM, REMOVE_ITEM } from "../actions/actions";
 import { FruitTypes } from "../constants/FruitTypes";
 
@@ -9,34 +9,34 @@ describe("cart reducer", () => {
     const state = reducer(undefined, {});
 
     //Then
-    expect(state).toEqual(cartFactory(0, 0, 0, 0));
+    expect(state).toEqual(initialState);
   });
 
   it("should handle ADD_ITEM", () => {
     //Given
-    const initialState = cartFactory(2, 0, 0, 0);
+    const initialState = stateFactory(2, 0, 0, 0);
 
     //When
     const state = reducer(initialState, {
       type: ADD_ITEM,
-      name: FruitTypes.BANANA
+      id: FruitTypes.BANANA
     });
 
     //Then
-    expect(state).toEqual(cartFactory(3, 0, 0, 0));
+    expect(state).toEqual(stateFactory(3, 0, 0, 0));
   });
 
   it("should handle REMOVE_ITEM", () => {
     //Given
-    const initialState = cartFactory(2, 0, 0, 0);
+    const initialState = stateFactory(2, 0, 0, 0);
 
     //When
     const state = reducer(initialState, {
       type: REMOVE_ITEM,
-      name: FruitTypes.BANANA
+      id: FruitTypes.BANANA
     });
 
     //Then
-    expect(state).toEqual(cartFactory(1, 0, 0, 0));
+    expect(state).toEqual(stateFactory(1, 0, 0, 0));
   });
 });

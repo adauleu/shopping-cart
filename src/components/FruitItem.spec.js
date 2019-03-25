@@ -6,13 +6,14 @@ import { FruitTypes } from "../constants/FruitTypes";
 describe("Fruit item component", () => {
   it("should display fruit item", () => {
     //Given
-    const name = FruitTypes.BANANA;
+    const id = FruitTypes.BANANA;
+    const name = "Banana";
     const price = 0.5;
     const quantity = 2;
 
     //When
     const fruitItemComponent = shallow(
-      <FruitItem name={name} price={price} quantity={quantity} />
+      <FruitItem id={id} name={name} price={price} quantity={quantity} />
     );
 
     //Then
@@ -23,15 +24,16 @@ describe("Fruit item component", () => {
 
   it("should disable minus button when quantity is 0", () => {
     //Given
-    const name = FruitTypes.BANANA;
+    const id = FruitTypes.BANANA;
+    const name = "Banana";
     const price = 0.5;
     const quantity = 0;
 
     //When
     const fruitItemComponent = shallow(
-      <FruitItem name={name} price={price} quantity={quantity} />
+      <FruitItem id={id} name={name} price={price} quantity={quantity} />
     );
-    const minusButton = fruitItemComponent.find("button").at(1);
+    const minusButton = fruitItemComponent.find("button").at(0);
 
     //Then
     expect(minusButton.prop("disabled")).toEqual(true);
@@ -39,15 +41,16 @@ describe("Fruit item component", () => {
 
   it("should enable minus button when quantity is not 0", () => {
     //Given
-    const name = FruitTypes.BANANA;
+    const id = FruitTypes.BANANA;
+    const name = "Banana";
     const price = 0.5;
     const quantity = 2;
 
     //When
     const fruitItemComponent = shallow(
-      <FruitItem name={name} price={price} quantity={quantity} />
+      <FruitItem id={id} name={name} price={price} quantity={quantity} />
     );
-    const minusButton = fruitItemComponent.find("button").at(1);
+    const minusButton = fruitItemComponent.find("button").at(0);
 
     //Then
     expect(minusButton.prop("disabled")).toEqual(false);

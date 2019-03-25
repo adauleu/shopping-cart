@@ -11,21 +11,31 @@ export function cartFactory(
   papayaQuantity
 ) {
   return {
-    [FruitTypes.BANANA]: {
-      price: 0.15,
-      quantity: bananaQuantity
-    },
-    [FruitTypes.APPLE]: {
-      price: 0.25,
-      quantity: appleQuantity
-    },
-    [FruitTypes.ORANGE]: {
-      price: 0.3,
-      quantity: orangeQuantity
-    },
-    [FruitTypes.PAPAYA]: {
-      price: 0.5,
-      quantity: papayaQuantity
-    }
+    cartItems: [
+      {
+        id: FruitTypes.APPLE,
+        name: "Apple",
+        price: 0.25,
+        quantity: appleQuantity
+      },
+      {
+        id: FruitTypes.ORANGE,
+        name: "Orange",
+        price: 0.3,
+        quantity: orangeQuantity
+      },
+      {
+        id: FruitTypes.BANANA,
+        name: "Banana",
+        price: 0.15,
+        quantity: bananaQuantity
+      },
+      {
+        id: FruitTypes.PAPAYA,
+        name: "Papaya",
+        price: 0.5,
+        quantity: papayaQuantity
+      }
+    ]
   };
 }

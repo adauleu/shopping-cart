@@ -13,8 +13,8 @@ const CartContainer = ({ cart, total }) => (
 );
 
 const mapStateToProps = state => ({
-  cart: state,
-  total: computePrice(state)
+  cart: state.cartItems,
+  total: computePrice(state.cartItems)
 });
 
 export default connect(mapStateToProps)(CartContainer);
